@@ -8,7 +8,7 @@ Date de dernière modification : 31/25
 
 ESGI1
 
-Auteur: Paul Schuhmacher
+Auteur(s): Paul Schuhmacher, Fabien Rozar
 
 Version: 2
 
