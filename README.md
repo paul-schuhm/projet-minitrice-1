@@ -103,7 +103,7 @@ Le projet est ramené sur une note sur **20**. Voici le barème détaillé :
 - Présence du répertoire `results` contenant les différents fichiers de résultats avec le contenu attendu : **1 point**;
 - Exécution correcte de votre programme sur les scénarios dans ce document : **2 points**;
 - La création du programme `generator` et son exécution correcte : **1 point**;
-- Le suivi du projet respecte le workflow *GitFlow* vu en cours : **2 points**;
+- Le suivi du projet respecte [le workflow *GitFlow* vu en cours](#branching-model-à-utiliser) : **2 points**;
 - Chaque message commit doit être concis (< 70 caractères) et **décrire correctement le travail réalisé par le commit**. Si la description doit être plus longue, le corps du message de commit est utilisé : **4 points**;
 - L'historique de commits est nettoyé au besoin (avec `git rebase` interactif), les commits sont *atomiques* : **2 points**
 - Pour chaque progression sur votre projet (*merge* d'une branche `feature` dans `main`), le projet est dans un état  **fonctionnel** (même s'il est incomplet) : **2 points**;
