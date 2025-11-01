@@ -85,7 +85,7 @@ Ce dépôt contient :
 
 - Le nom du dépôt doit être de la forme `git-evaluation_groupe-<numéro>` où **`<numéro>`** est votre numéro de groupe (assigné en classe). Par exemple, le groupe `2` doit créer un unique dépôt nommé `git-evaluation_groupe-2`.
 
-Votre dépôt doit contenir *a minima* :
+Votre dépôt **doit contenir** *a minima* :
 
 - Un fichier `README.md` avec les sections suivantes :
   - **Table des matières** (vous pouvez la générer automatiquement), pour naviguer facilement dans le document;
@@ -210,20 +210,19 @@ Dans ce dépôt, vous trouverez le fichier `good-expression.txt` qui contient 10
 
 ~~~bash
 1.  $ cat good-expression.txt | ./minitrice
-2.   4
-3.   11
-4.   35
-5.   -4
-6.   12
-7.   90
-8.   4.0
-9.   8.0
-10.  10
-11.  4
-12.  $ echo $?
-13.  0
-14.  $ 
-
+2.  4
+3.  11
+4.  35
+5.  -4
+6.  12
+7.  90
+8.  4.0
+9.  8.0
+10. 10
+11. 4
+12. $ echo $?
+13. 0
+14. $ 
 ~~~
 
 - À la ligne `1`, on envoie le contenu du fichier `good-expression.txt` dans le programme  `minitrice` à l'aide d'un pipe ;
