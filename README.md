@@ -6,8 +6,6 @@ Module Git (14h)
 
 Date de dernière modification : 31/25
 
-ESGI1
-
 Auteur(s): Paul Schuhmacher, Fabien Rozar
 
 Version: 2
@@ -29,18 +27,16 @@ Version: 2
       - [Division par zéro](#division-par-zéro)
     - [Spécification 5 : Générateur d'expressions](#spécification-5--générateur-dexpressions)
     - [Spécification 6 : Formatage](#spécification-6--formatage)
-    - [Branching model à utiliser](#branching-model-à-utiliser)
+    - [*Branching model* à utiliser](#branching-model-à-utiliser)
     - [Visualisation avec gource (optionnel)](#visualisation-avec-gource-optionnel)
   - [Conseils](#conseils)
     - [Sur Windows](#sur-windows)
   - [Liens utiles](#liens-utiles)
 
 
-Ce projet consiste à créer un programme capable de réaliser les 4 opérations arithmétiques élémentaires (`+`, `-`, `*` et `/`) entre deux nombres positifs. L'historique de développement du projet sera suivi avec git.
-
-
-
 ## Objectifs
+
+Ce projet consiste à créer un programme capable de réaliser les 4 opérations arithmétiques élémentaires (`+`, `-`, `*` et `/`) entre deux nombres positifs. **L'historique de développement du projet sera correctement suivi avec git**.
 
 Ce projet sert de support pour l'évaluation du module Git et doit être réalisé **seul/e ou à deux**.
 
@@ -54,7 +50,7 @@ Ce projet a pour but d'évaluer votre capacité à utiliser git et à manipuler 
 
 Le dépôt git contiendra les sources et un fichier `README` donnant les instructions pour installer et lancer le projet.
 
-**Pour chaque groupe**, envoyer **un seul e-mail** à l’adresse suivante : <a href="mailto:pschuhmacher@myges.fr?subject=git-evaluation_groupe-<numéro>">pschuhmacher@myges.fr</a>, **ayant le sujet suivant** : 
+**Pour chaque groupe**, envoyer **un seul e-mail** à l’adresse e-mail communiquée **ayant le sujet suivant** : 
 
 `git-evaluation_groupe-<numéro>` 
 
@@ -72,7 +68,6 @@ Vous devez rendre votre travail **avant la date butoir fixée ensemble sous pein
 Merci de vérifier que le dépôt est **public** !
 
 > Vous êtes encouragé·e à **mettre votre collègue en copie du mail** de rendu.
-
 
 ## Bien démarrer
 
@@ -214,31 +209,30 @@ Dans ce dépôt, vous trouverez le fichier `good-expression.txt` qui contient 10
 <br>
 
 ~~~bash
-
- 1. $ cat good-expression.txt | ./minitrice
- 2. 4
- 3. 11
- 4. 35
- 5. -4
- 6. 12
- 7. 90
- 8. 4.0
-1.  8.0
-2.  10
-3.  4
-4.  $ echo $?
-5.  0
-6.  $ 
+1.  $ cat good-expression.txt | ./minitrice
+2.   4
+3.   11
+4.   35
+5.   -4
+6.   12
+7.   90
+8.   4.0
+9.   8.0
+10.  10
+11.  4
+12.  $ echo $?
+13.  0
+14.  $ 
 
 ~~~
 
-- À la ligne `1`, on envoie le contenu du fichier `good-expression.txt` dans le programme  `minitrice` à l'aide d'un pipe.
-De la ligne `2` à `12`, le programme `minitrice` écrit le résultat des calculs sur la sortie standard `STDOUT`.  
-- À la ligne `13`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice`.  
-- À la ligne `14`, on voit le code de sortie `0`.  
+- À la ligne `1`, on envoie le contenu du fichier `good-expression.txt` dans le programme  `minitrice` à l'aide d'un pipe ;
+- De la ligne `2` à `11`, le programme `minitrice` écrit le résultat des calculs sur la sortie standard `STDOUT` ;
+- À la ligne `12`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice` ;
+- À la ligne `13`, on voit le code de sortie `0`, indiquant une exécution sans erreur ;  
 - À la ligne `15`, on est de retour dans le terminal.  
 
-Ce scénario décrit un exemple d'utilisation du programme à réaliser. On peut noter qu'avec la capacité de lecture sur le *pipe*, il possible au programme `minitrice` de traiter à présent un grand nombre de données.
+Ce scénario décrit un exemple d'utilisation du programme à réaliser. On peut noter qu'avec la capacité de lecture sur le *pipe*, le programme `minitrice` peut à présent traiter un grand nombre de données sans intervention humaine (*input*).
 
 ### Spécification 4 - Gestion des erreurs
 
@@ -257,10 +251,10 @@ Si la ligne de calcul comporte une erreur de syntaxe, voici le comportement du p
 5. $ 
 ```
 
-- À la ligne `1`, on envoie la chaîne de caractère "3+*12" dans le programme `minitrice` à l'aide d'un pipe.
-- À la ligne `2`, le programme main écrit son message d'erreur en rappelant le calcul concerné.  
-- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice`.  
-- À la ligne `4`, on voit le code de sortie `1`.  
+- À la ligne `1`, on envoie la chaîne de caractère "3+*12" dans le programme `minitrice` à l'aide d'un pipe ;
+- À la ligne `2`, le programme main écrit son message d'erreur en rappelant le calcul concerné ;
+- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice` ;
+- À la ligne `4`, on voit le code de sortie `1` ;
 - À la ligne `5`, on est de retour dans le terminal.  
 
 On peut noter que le message d'erreur rappelle la ligne de calcul qui a provoqué l'erreur. On peut aussi voir que le code de sortie est *différent* de `0`, ce qui indique que le programme ne s'est pas exécuté correctement.
@@ -304,7 +298,7 @@ Le programme `generator` génère des expressions calculables de façon aléatoi
 - À la ligne `3`, on voit que l'expression `84/12` a été générée.  
 - À la ligne `4`, on est de retour dans le terminal.  
 
-Le programme `generator` peut *être composé* avec le programme `minitrice` à l'aide d'un pipe (en imaginant que les mêmes expressions que précédemment soit générées) :
+Le programme `generator` peut *être composé* avec le programme `minitrice` à l'aide d'un *pipe* (en imaginant que les mêmes expressions que précédemment soit générées) :
 
 ```bash
 1. $ ./generator 2 | ./minitrice
@@ -315,13 +309,13 @@ Le programme `generator` peut *être composé* avec le programme `minitrice` à 
 
 ### Spécification 6 : Formatage
 
-- Les nombres que le programme `minitrice` doit supporter sont des nombres positifs de taille raisonnable : pas d'overflow ou d'erreur de calcul dû la taille des nombres manipulée. Donc pas de piège ici.
-- Les espaces à gauche et à droite d'une ligne de calcul ne génèrent pas d'erreurs.
+- Les nombres que le programme `minitrice` doit supporter sont des nombres positifs de taille raisonnable : pas d'*overflow* ou d'erreur de calcul dû la taille des nombres manipulée ;
+- Les espaces à gauche et à droite d'une ligne de calcul ne génèrent pas d'erreurs ;
 - Pour l'affichage du résultat de calcul, il doit être **arrondi à 2 chiffres après la virgule** lorsque sa partie décimale est grande.
 
-### Branching model à utiliser
+### *Branching model* à utiliser
 
-Pour versionner ce projet, **vous devez utiliser** le *worfklow* (ou *branching model*) vu en cours :
+Pour versionner ce projet, **vous devez utiliser** le *worfklow git* (ou *branching model*) vu en cours :
 
 - Une branche principale (`main`) représentant l'état de *référence*, fonctionnel du projet ;
 - Des branches de développement `feature/xyz` ;
