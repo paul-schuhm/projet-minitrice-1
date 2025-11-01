@@ -24,7 +24,7 @@ Version: 2
     - [Spécification 1 - Utilisation interactive](#spécification-1---utilisation-interactive)
     - [Spécification 2 - STDIN : utilisation de `echo`](#spécification-2---stdin--utilisation-de-echo)
     - [Spécification 3 - STDIN : utilisation de `cat`](#spécification-3---stdin--utilisation-de-cat)
-    - [Spécification 4 - Gestion d'erreurs](#spécification-4---gestion-derreurs)
+    - [Spécification 4 - Gestion des erreurs](#spécification-4---gestion-des-erreurs)
       - [Erreur de syntaxe](#erreur-de-syntaxe)
       - [Division par zéro](#division-par-zéro)
     - [Spécification 5 : Générateur d'expressions](#spécification-5--générateur-dexpressions)
@@ -164,7 +164,7 @@ Un exemple d'utilisation :
 - À la ligne `3`, le programme affiche le résultat du calcul.  
 - À la ligne `4`, on sort du programme `minitrice` grâce à la combinaison de touche `Ctrl + D` qui envoie [le signal `End-Of-File`](https://fr.wikipedia.org/wiki/End-of-file) au programme.  
 - À la ligne `5`, le programme afficher un message de sorti `Fin des calculs`.  
-- À la ligne `6`, de retour dans le terminal Unix, on demande le code de sortie (`$?`) suite à l'exécution du program `minitrice`.  
+- À la ligne `6`, de retour dans le terminal Unix, on demande le code de sortie (`$?`) suite à l'exécution du programme`minitrice`.  
 - À la ligne `7`, on voit le code de sortie `0`.  
 - À la ligne `8`, on est de retour dans le terminal.  
 
@@ -176,7 +176,9 @@ Ce scénario décrit un exemple d'utilisation du programme à réaliser.
 
 ### Spécification 2 - STDIN : utilisation de `echo`
 
-Dans le but d'automatiser l'utilisation du programme `minitrice`, il doit pouvoir lire sur l'entrée standard `STDIN`. Dans [la tradition d'Unix](https://fr.wikipedia.org/wiki/Philosophie_d%27Unix), tout programme devrait présenter une interface *texte*, l'interface *universelle*. Cette interface permet au programme de recevoir des données en entrée depuis la sortie d'un autre programme sous forme de chaîne de caractères. Ainsi, le programme peut être *composé* avec d'autres programmes pour en fabriquer de nouveaux. Pour composer deux programmes, il faut utiliser [un pipe (ou tube)](https://en.wikipedia.org/wiki/Pipeline_(Unix)), représenté par le caractère `|`. Par exemple :
+Dans le but d'automatiser l'utilisation du programme `minitrice`, il doit pouvoir lire sur l'entrée standard `STDIN`. Dans [la tradition d'Unix](https://fr.wikipedia.org/wiki/Philosophie_d%27Unix), tout programme devrait présenter une interface *texte*, l'interface *universelle*. Cette interface permet au programme de recevoir des données en entrée depuis la sortie d'un autre programme sous forme de chaîne de caractères. Ainsi, le programme peut être *composé* avec d'autres programmes pour en fabriquer de nouveaux. 
+
+Pour composer deux programmes, il faut utiliser [un pipe (ou tube)](https://en.wikipedia.org/wiki/Pipeline_(Unix)), représenté par le caractère `|`. Par exemple :
 
 ```bash
 programme1 | programme2 | programme3
@@ -199,7 +201,7 @@ Un exemple d'utilisation :
 
 - À la ligne `1`, on envoie la chaîne de caractère `"3+12"` dans le programme `minitrice` à l'aide d'un pipe;
 - À la ligne `2`, le programme `minitrice` écrit son résultat;
-- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du program `minitrice`;
+- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice`;
 - À la ligne `4`, on voit le code de sortie `0`;
 - À la ligne `5`, on est de retour dans le terminal.  
 
@@ -232,15 +234,15 @@ Dans ce dépôt, vous trouverez le fichier `good-expression.txt` qui contient 10
 
 - À la ligne `1`, on envoie le contenu du fichier `good-expression.txt` dans le programme  `minitrice` à l'aide d'un pipe.
 De la ligne `2` à `12`, le programme `minitrice` écrit le résultat des calculs sur la sortie standard `STDOUT`.  
-- À la ligne `13`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du program `minitrice`.  
+- À la ligne `13`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice`.  
 - À la ligne `14`, on voit le code de sortie `0`.  
 - À la ligne `15`, on est de retour dans le terminal.  
 
-Ce scénario décrit un exemple d'utilisation du programme à réaliser. On peut noter qu'avec la capacité de lecture sur le pipe, il possible au programme `minitrice` de traiter un grand nombre de données.
+Ce scénario décrit un exemple d'utilisation du programme à réaliser. On peut noter qu'avec la capacité de lecture sur le *pipe*, il possible au programme `minitrice` de traiter à présent un grand nombre de données.
 
-### Spécification 4 - Gestion d'erreurs
+### Spécification 4 - Gestion des erreurs
 
-La gestion d'erreurs fait partie intégrante du travail du développeur·se. Si les cas limites ne sont pas traités, le programme est généralement inutilisable. La gestion des erreurs est identique que le programme `minitrice` soit utilisé en mode interactif ou en mode lecture depuis `STDIN`.
+**La gestion d'erreurs fait partie intégrante du travail du développeur·se**. Si les cas limites ne sont pas traités, le programme est généralement inutilisable. La gestion des erreurs est identique que le programme `minitrice` soit utilisé en mode interactif ou en mode lecture depuis `STDIN`.
 
 #### Erreur de syntaxe
 
@@ -257,7 +259,7 @@ Si la ligne de calcul comporte une erreur de syntaxe, voici le comportement du p
 
 - À la ligne `1`, on envoie la chaîne de caractère "3+*12" dans le programme `minitrice` à l'aide d'un pipe.
 - À la ligne `2`, le programme main écrit son message d'erreur en rappelant le calcul concerné.  
-- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du program `minitrice`.  
+- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme `minitrice`.  
 - À la ligne `4`, on voit le code de sortie `1`.  
 - À la ligne `5`, on est de retour dans le terminal.  
 
@@ -278,7 +280,7 @@ La division par zéro est un grand classique des erreurs à traiter dans le cadr
 
 - À la ligne `1`, on envoie la chaîne de caractère "3/0" dans le programme `minitrice` à l'aide d'un pipe.
 - À la ligne `2`, le programme main écrit son message d'erreur.  
-- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du program `minitrice`.  
+- À la ligne `3`, de retour dans le terminal Unix, on demande le code de sortie suite à l'exécution du programme`minitrice`.  
 - À la ligne `4`, on voit le code de sortie `1`.  
 - À la ligne `5`, on est de retour dans le terminal.  
 
@@ -291,7 +293,6 @@ Le programme `minitrice` ayant la capacité de lire des entrées depuis un pipe,
 Le programme `generator` génère des expressions calculables de façon aléatoire. Deux nombres choisis aléatoirement dans l'intervale `[1, 1000]` sont utilisés pour générer les expressions. Le choix de l'opération à réaliser entre ces deux nombres est aussi aléatoire. Ce programme prend un entier comme premier argument qui désigne le nombre d'expression à générer. Exemple d'utilisation :
 
 ```bash
-
 1. $ ./generator 2
 2. 7-9
 3. 84/12
@@ -306,7 +307,6 @@ Le programme `generator` génère des expressions calculables de façon aléatoi
 Le programme `generator` peut *être composé* avec le programme `minitrice` à l'aide d'un pipe (en imaginant que les mêmes expressions que précédemment soit générées) :
 
 ```bash
-
 1. $ ./generator 2 | ./minitrice
 2. -2
 3. 7.0
