@@ -14,7 +14,31 @@ Version: 2
 
 <hr>
 
+- [Git - Évaluation : - Projet *Minitrice* versionné avec Git](#git---évaluation----projet-minitrice-versionné-avec-git)
+  - [Objectifs](#objectifs)
+  - [Comment rendre votre travail](#comment-rendre-votre-travail)
+  - [Bien démarrer](#bien-démarrer)
+  - [À rendre](#à-rendre)
+  - [Notation](#notation)
+  - [Spécifications du projet](#spécifications-du-projet)
+    - [Spécification 1 - Utilisation interactive](#spécification-1---utilisation-interactive)
+    - [Spécification 2 - STDIN : utilisation de `echo`](#spécification-2---stdin--utilisation-de-echo)
+    - [Spécification 3 - STDIN : utilisation de `cat`](#spécification-3---stdin--utilisation-de-cat)
+    - [Spécification 4 - Gestion d'erreurs](#spécification-4---gestion-derreurs)
+      - [Erreur de syntaxe](#erreur-de-syntaxe)
+      - [Division par zéro](#division-par-zéro)
+    - [Spécification 5 : Générateur d'expressions](#spécification-5--générateur-dexpressions)
+    - [Spécification 6 : Formatage](#spécification-6--formatage)
+    - [Branching model à utiliser](#branching-model-à-utiliser)
+    - [Visualisation avec gource (optionnel)](#visualisation-avec-gource-optionnel)
+  - [Conseils](#conseils)
+    - [Sur Windows](#sur-windows)
+  - [Liens utiles](#liens-utiles)
+
+
 Ce projet consiste à créer un programme capable de réaliser les 4 opérations arithmétiques élémentaires (`+`, `-`, `*` et `/`) entre deux nombres positifs. L'historique de développement du projet sera suivi avec git.
+
+
 
 ## Objectifs
 
