@@ -103,7 +103,7 @@ Le projet est ramené sur une note sur **20**. Voici le barème détaillé :
 - Présence du répertoire `results` contenant les différents fichiers de résultats avec le contenu attendu : **1 point**;
 - Exécution correcte de votre programme sur les scénarios dans ce document : **2 points**;
 - La création du programme `generator` et son exécution correcte : **1 point**;
-- Le suivi du projet respecte [le workflow *GitFlow* vu en cours](#branching-model-à-utiliser) : **2 points**;
+- Le suivi du projet respecte [le workflow utilisé en cours](#branching-model-à-utiliser) : **2 points**;
 - Chaque message commit doit être concis (< 70 caractères) et **décrire correctement le travail réalisé par le commit**. Si la description doit être plus longue, le corps du message de commit est utilisé : **4 points**;
 - L'historique de commits est nettoyé au besoin (avec `git rebase` interactif), les commits sont *atomiques* : **2 points**
 - Pour chaque progression sur votre projet (*merge* d'une branche `feature` dans `main`), le projet est dans un état  **fonctionnel** (même s'il est incomplet) : **2 points**;
@@ -297,11 +297,21 @@ Le programme `generator` peut *être composé* avec le programme `minitrice` à 
 
 ### Branching model à utiliser
 
-Pour versionner ce projet, **vous devez utiliser** le git workflow (ou *branching model*) [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) vu en cours :
+Pour versionner ce projet, **vous devez utiliser** le *worfklow* (ou *branching model*) vu en cours :
 
-- Une branche principale (`main`) représentant l'état de *référence*, fonctionnel du projet;
-- Des branches de développement `feature/xyz`;
-- Chaque contribution au projet se fait par un **merge** d'une branche `feature` sur `main`.
+- Une branche principale (`main`) représentant l'état de *référence*, fonctionnel du projet ;
+- Des branches de développement `feature/xyz` ;
+- Chaque contribution au projet se fait par un **merge** d'une branche de développement `feature` sur `main` **avec un commit de merge** (pour forcer la création d'un commit de merge et empêcher le *fast-forward* utiliser `git merge --no-ff feature` ).
+
+Votre historique de commits doit typiquement ressembler à ça :
+
+~~~
+                  d -- e (feature/b)       f (feature/c)
+                 /      \                 / \   
+A -- B -- C --  D ------ E ------------------F---------------- (main)
+ \             /
+  a -- b -- c(feature/a)         
+~~~
 
 Pensez à bien conserver et pousser **toutes les branches locales (features) vers votre dépôt**. Le dépôt GitHub doit **contenir toutes les branches**.
 
@@ -340,7 +350,6 @@ Pour les utilisateur·ices de Windows, installer [WSL2](https://learn.microsoft.
 
 ## Liens utiles
 
- - [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/), l'article original décrivant en détail le workflow *GitFlow*
  - [How to capture Control+D signal?](https://stackoverflow.com/questions/1516122/how-to-capture-controld-signal), discussion sur l'interception du signal `End Of File`;
  - [My Gource video production pipeline](https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0), décrit un exemple d'utilisation de gource;
  - [Philosophie d'Unix](https://fr.wikipedia.org/wiki/Philosophie_d%27Unix), description de la philosophie Unix;
